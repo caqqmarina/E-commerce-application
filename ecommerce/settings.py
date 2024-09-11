@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-cu5qxp8w(_4t4+#n9hapj9&4^jov*$$%r&rj=4orkft6stbje=
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "<Your PWS deployment URL>"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "http://chiara-aqmarina-ecommerceapplication.pbp.cs.ui.ac.id"]
 
 
 # Application definition
