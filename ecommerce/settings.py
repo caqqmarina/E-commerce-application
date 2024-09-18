@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-cu5qxp8w(_4t4+#n9hapj9&4^jov*$$%r&rj=4orkft6stbje=
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "http://chiara-aqmarina-ecommerceapplication.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "http://chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id"]
 
 
 # Application definition
@@ -125,3 +125,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id", "https://chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id"]
