@@ -57,7 +57,6 @@ Data delivery is crucial because it allows platforms to exchange information bet
 
 JSON is generally more lightweight and easier to read and write compared to XML, its easier on the eyes. Meanwhile, XML can be hard to read and very verbose, it also requires more parsing. Additionally for JSON it integrates well for API's and Javascript, making it more popular than XML.
 
-
 3. Explain the functional usage of is_valid() method in Django forms. Also explain why we need the method in forms.
 
 The is_valid() method checks if the information someone entered into a form is correct and follows the rules you've set (like making sure a field isn't empty or that an email address is properly formatted). If everything looks good, it returns True; otherwise, it returns False. This is important because you don't want to save incomplete or incorrect data to your database.
@@ -73,3 +72,6 @@ The csrf_token protects your forms from Cross-Site Request Forgery (CSRF) attack
 - Implemented URL routing for pws to connect views with the web application’s interface.
 - Structured the form with CSRF protection to avoid vulnerabilities.
 - Ensured validation using the is_valid() method to prevent invalid data from being submitted.
+
+Access the four URLs in point 2 using Postman, take screenshots of the results in Postman, and add them to README.md.
+https://drive.google.com/drive/folders/1XM6ZVE7FzbINOaqk8aYaWosNkBmm2B6A?usp=sharing
