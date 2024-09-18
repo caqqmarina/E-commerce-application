@@ -1,3 +1,5 @@
+Assignment 1:
+
 Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 
 1. create a new django project (using django-admin startproject ecommerce)
@@ -44,3 +46,30 @@ Django is often chosen for beginners because it’s a comprehensive, all-in-one 
 Why is the Django model called an ORM?
 
 Django’s model is called an ORM (Object-Relational Mapping) because it automatically translates Python code into database queries. Instead of writing complex SQL, developers can interact with the database using simple Python objects. This abstraction makes database management easier and more intuitive, allowing developers to focus on the logic rather than the details of database queries.
+
+Assignment 2:
+
+1. Explain why we need data delivery in implementing a platform.
+
+Data delivery is crucial because it allows platforms to exchange information between servers and clients or between multiple systems. Without data delivery, user interaction (such as submitting forms or retrieving information) would not be possible. Platforms need to support efficient data delivery to ensure seamless interaction, enable services such as APIs, and facilitate scalability.
+
+2. In your opinion, which is better, XML or JSON? Why is JSON more popular than XML?
+
+JSON is generally more lightweight and easier to read and write compared to XML, its easier on the eyes. Meanwhile, XML can be hard to read and very verbose, it also requires more parsing. Additionally for JSON it integrates well for API's and Javascript, making it more popular than XML.
+
+
+3. Explain the functional usage of is_valid() method in Django forms. Also explain why we need the method in forms.
+
+The is_valid() method checks if the information someone entered into a form is correct and follows the rules you've set (like making sure a field isn't empty or that an email address is properly formatted). If everything looks good, it returns True; otherwise, it returns False. This is important because you don't want to save incomplete or incorrect data to your database.
+
+4. Why do we need csrf_token when creating a form in Django? What could happen if we did not use csrf_token on a Django form? How could this be leveraged by an attacker?
+
+The csrf_token protects your forms from Cross-Site Request Forgery (CSRF) attacks, where a user is tricked into unknowingly submitting a form on your site. Without it, an attacker could create fake forms that submit requests using a logged-in user's credentials, like changing their password or making purchases.
+
+5. Explain how you implemented the checklist above step-by-step (not just following the tutorial).
+
+- Created a form for adding Product objects using django’s ModelForm.
+- Built views to handle different data formats (XML and JSON) for all products and by specific IDs.
+- Implemented URL routing for pws to connect views with the web application’s interface.
+- Structured the form with CSRF protection to avoid vulnerabilities.
+- Ensured validation using the is_valid() method to prevent invalid data from being submitted.
