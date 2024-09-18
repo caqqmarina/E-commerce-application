@@ -1,8 +1,42 @@
-...
-<h5>App Name: </h5>
-<p>{{ app_name }}<p>
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Class: </h5>
-<p>{{ class }}<p>
-...
+{% extends 'base.html' %}
+{% block content %}
+<h1>Slime Shop App</h1>
+
+<h5>NPM: </h5>
+<p>{{ npm }}</p>  <!-- Fixed typo -->
+
+<h5>Name:</h5>
+<p>{{ name }}</p>
+
+<h5>Class:</h5>
+<p>{{ class }}</p>
+
+{% if not product_entries %}
+<p>There are no product data in ecommerceapp.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Slime Quality</th>  <!-- Assuming Slime Quality is a field -->
+  </tr>
+
+  {% for product_entry in product_entries %}
+  <tr>
+    <td>{{product_entry.name}}</td>
+    <td>{{product_entry.price}}</td>
+    <td>{{product_entry.description}}</td>
+    <td>{{product_entry.slime_quality}}</td>  <!-- Add the correct field name -->
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'shop:create_product_entry' %}">
+  <button>Add New Product Entry</button>
+</a>
+
+{% endblock content %}
