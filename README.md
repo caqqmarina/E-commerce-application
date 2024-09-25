@@ -1,4 +1,4 @@
-Assignment 1:
+Assignment 2:
 
 Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 
@@ -47,7 +47,7 @@ Why is the Django model called an ORM?
 
 Django’s model is called an ORM (Object-Relational Mapping) because it automatically translates Python code into database queries. Instead of writing complex SQL, developers can interact with the database using simple Python objects. This abstraction makes database management easier and more intuitive, allowing developers to focus on the logic rather than the details of database queries.
 
-Assignment 2:
+Assignment 3:
 
 1. Explain why we need data delivery in implementing a platform.
 
@@ -75,3 +75,61 @@ The csrf_token protects your forms from Cross-Site Request Forgery (CSRF) attack
 
 Access the four URLs in point 2 using Postman, take screenshots of the results in Postman, and add them to README.md.
 https://drive.google.com/drive/folders/1XM6ZVE7FzbINOaqk8aYaWosNkBmm2B6A?usp=sharing
+
+Assignment 4:
+
+ 1. What is the difference between HttpResponseRedirect() and redirect()?
+
+ HttpResponseRedirect(): a low-level method that simply returns an HTTP 302 redirect to a specific URL
+ redirect(): a high-level Django utility that automatically handles various types of inputs. It can take a view name, a URL path, or even an object and resolve it to the appropriate URL.
+
+ 2. Explain how the MoodEntry model is linked with User!
+ MoodEntry can be linked with the ForeignKey relationship, which means that the MoodEntry model has a field user which is a foreign key to the User model. Each user can have multiple mood entries, but each MoodEntry is linked to exactly one User.
+
+ 3. What is the difference between authentication and authorization, and what happens when a user logs in? Explain how Django implements these   two concepts.
+
+ Authentication:
+ This is the process of verifying a user's identity (i.e., checking if the user is who they claim to be).
+ In Django, authentication happens when a user provides valid credentials (such as a username and password) via the login form. Django checks the credentials against the database, and if they are valid, the user is authenticated.
+
+ Authorization:
+
+ This is the process of determining if a user has permission to access a resource or perform an action (e.g., accessing a specific view, editing data).
+ In Django, after a user is authenticated, the system checks whether the user has the necessary permissions to perform an action.
+
+ 5. How does Django remember logged-in users? Explain other uses of cookies and whether all cookies are safe to use.
+ Django uses sessions to remember logged-in users.
+ When a user logs in, Django creates a session on the server side and assigns it a unique session ID. This session ID is stored in a cookie on the user’s browser.
+ On each subsequent request, the user’s browser sends this session cookie back to the server.
+ Django retrieves the session data based on the session ID stored in the cookie, which includes information like the user’s ID.
+
+ Other uses of cookies:
+ Storing preferences: Cookies can be used to store user preferences (e.g., language settings, theme selection).
+ Tracking: Cookies can be used for tracking user behavior, such as the items viewed in an e-commerce store.
+ Shopping cart: Cookies can be used to maintain a shopping cart for users who haven’t logged in.
+ Are all cookies safe to use?
+ Not all cookies are safe: Some cookies, especially third-party tracking cookies, can be used to collect user data without their consent, raising privacy concerns.
+
+ 6. Explain how did you implement the checklist step-by-step (apart from following the tutorial).
+
+First, I implemented the user authentication system by using Django’s built-in UserCreationForm for registration and AuthenticationForm for login.
+I customized the login_user view to handle form submissions and log the user in upon successful authentication.
+I also added the necessary URL paths to urls.py.
+Model creation and linking:
+
+I created the Product model, linking it to the User model using a ForeignKey. This ensures each product is associated with a specific user.
+I added fields like name, price, description, and slime_quality to the model.
+Views for product creation and display:
+
+I created a view to display products based on the logged-in user, ensuring each user sees only their own product entries.
+I implemented a view for creating new product entries (create_product_entry). In this view, I made sure that the ProductEntryForm data was saved along with the user field, which is automatically set to the logged-in user.
+Data display and templates:
+
+I customized the template (main.html) to display products specific to the logged-in user by filtering the products based on request.user.
+I added necessary templates for login, registration, and creating product entries.
+Migrations:
+
+I ran database migrations using makemigrations and migrate to update the schema after modifying the models.
+Dummy data creation:
+
+I populated the database with test data, creating two user accounts and adding three products for each account to ensure that each user could view only their own data in the app.

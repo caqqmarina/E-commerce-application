@@ -20,4 +20,11 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-##
+# name: CharField
+# age: IntegerField
+# is_happy: BooleanField
+
+# class Person(models.Model):
+#     name = models.CharField(max_length=80)
+#     age = models.IntegerField()
+#     is_happy = models.BooleanField()
