@@ -17,7 +17,7 @@ from django.urls import reverse
 
 @login_required(login_url='/login')
 def show_shop(request):
-    product_entries = Product.objects.all()
+    product_entries = Product.objects.filter(user=request.user)
 
     context = {
         'app_name': 'Online Slime Shop',
@@ -87,5 +87,37 @@ def login_user(request):
    return render(request, 'login.html', context)
 
 def logout_user(request):
-    logout(request)
-    return redirect('shop:login')
+    logout(request)  # Logs out the current user
+    response = HttpResponseRedirect(reverse('shop:login'))  # Redirect to the login page
+    response.delete_cookie('last_login')  # Optional: delete the last login cookie
+    return response
+
+def edit_product_entry(request, id):
+    # Get the product entry based on the provided ID
+    product_entry = Product.objects.get(pk=id)
+
+    # Set the product entry as an instance of the form (pre-filling the form)
+    form = ProductEntryForm(request.POST or None, instance=product_entry)
+
+    # Check if the form is valid and the request method is POST (form submission)
+    if form.is_valid() and request.method == "POST":
+        # Save the changes to the product entry
+        form.save()
+        # Redirect the user to the shop page (or wherever you want)
+        return HttpResponseRedirect(reverse('shop:show_shop'))
+
+    # Pass the form with the pre-filled product data to the template
+    context = {'form': form}
+    return render(request, "edit_product_entry.html", context)
+
+def delete_product_entry(request, id):
+    # Get the product entry based on the provided ID
+    product_entry = Product.objects.get(pk=id)
+
+    # Delete the product entry
+    product_entry.delete()
+
+    # Redirect the user to the shop page after deletion
+    return HttpResponseRedirect(reverse('shop:show_shop'))
+
+

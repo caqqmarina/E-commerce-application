@@ -4,8 +4,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Import Pacifico font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Custom global styles -->
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+
     {% block meta %} {% endblock meta %}
-    
+
     <style>
       body, h1, h2, h3, h4, h5, h6, p, table, form {
         text-align: center; /* Centralizes all text */

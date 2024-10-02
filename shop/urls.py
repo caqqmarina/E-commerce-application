@@ -4,6 +4,8 @@ from shop.views import show_shop, create_product_entry, show_xml, show_json, sho
 from shop.views import register
 from shop.views import login_user
 from shop.views import logout_user
+from shop.views import edit_product_entry
+from shop.views import delete_product_entry
 
 app_name = 'shop'
 
@@ -17,5 +19,8 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
+    path('edit-product-entry/<uuid:id>', edit_product_entry, name='edit_product_entry'),
+    path('delete-product/<uuid:id>/', delete_product_entry, name='delete_product_entry'),
+
 ]
 

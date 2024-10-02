@@ -28,3 +28,12 @@ class Product(models.Model):
 #     name = models.CharField(max_length=80)
 #     age = models.IntegerField()
 #     is_happy = models.BooleanField()
+
+# class Project(models.Model):
+#     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     name = models.CharField(max_length=255)
+
+# class Employee(models.Model):
+#     department: models.Charfield(max_length=100)
+#     projects: models.ManyToManyField(Project)
+#     user: models.OneToOneField(User, on_delete=models.CASCADE)

@@ -1,28 +1,72 @@
-{% extends 'base.html' %} {% block meta %}
+{% extends 'base.html' %}
+
+{% block meta %}
 <title>Register</title>
-{% endblock meta %} {% block content %}
+{% endblock meta %}
 
-<div class="login">
-  <h1>Register</h1>
+{% block content %}
+<div class="min-h-screen flex items-center justify-center w-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <!-- Register Title -->
+    <div>
+      <h1 class="text-center text-6xl font-bold" style="font-family: 'Pacifico', cursive; color: #905cb6;">
+        Register
+      </h1>
+    </div>
 
-  <form method="POST">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-      <tr>
-        <td></td>
-        <td><input type="submit" name="submit" value="Register" /></td>
-      </tr>
-    </table>
-  </form>
+    <!-- Register Form Section -->
+    <div class="bg-white p-8 shadow-md rounded-lg">
+      <h2 class="mt-6 text-center text-3xl font-bold text-gray-900">
+        Create your account
+      </h2>
 
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+      <!-- Registration Form -->
+      <form class="mt-8 space-y-6" method="POST" action="">
+        {% csrf_token %}
+        <div class="rounded-md shadow-sm space-y-4">
+          <!-- Aligning form fields with labels and qualifications -->
+          <div class="flex flex-col space-y-1">
+            <label for="id_username" class="text-left text-sm font-medium text-gray-700">Username:</label>
+            {{ form.username }}
+            <p class="text-xs text-gray-500">Required. 150 characters or fewer. Letters, digits, and @/./+/-/_ only.</p>
+          </div>
+          <div class="flex flex-col space-y-1">
+            <label for="id_password1" class="text-left text-sm font-medium text-gray-700">Password:</label>
+            {{ form.password1 }}
+            <p class="text-xs text-gray-500">
+              Your password can’t be too similar to your other personal information.<br>
+              Your password must contain at least 8 characters.<br>
+              Your password can’t be a commonly used password.<br>
+              Your password can’t be entirely numeric.
+            </p>
+          </div>
+          <div class="flex flex-col space-y-1">
+            <label for="id_password2" class="text-left text-sm font-medium text-gray-700">Password confirmation:</label>
+            {{ form.password2 }}
+            <p class="text-xs text-gray-500">Enter the same password as before, for verification.</p>
+          </div>
+        </div>
+
+        <!-- Register Button with custom color -->
+        <div>
+          <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white"
+            style="background-color: #905cb6; hover:bg-[#6a4293];">
+            Register
+          </button>
+        </div>
+      </form>
+
+      <!-- Error or Success Messages -->
+      {% if messages %}
+      <div class="mt-4">
+        {% for message in messages %}
+        <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative" role="alert">
+          <span class="block sm:inline">{{ message }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
 </div>
-
 {% endblock content %}

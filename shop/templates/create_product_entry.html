@@ -1,11 +1,37 @@
 {% extends 'base.html' %}
-{% block content %}
-<h1>Add New Product</h1>
+{% load static %}
 
-<form method="POST">
+{% block content %}
+<h1 class="text-2xl font-bold mb-6">Add New Product</h1>
+
+<form method="POST" class="space-y-4 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
     {% csrf_token %}
-    {{ form.as_table }}
-    <button type="submit">Submit</button>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <label for="id_name" class="block font-medium text-gray-700">Name:</label>
+            {{ form.name }}
+        </div>
+
+        <div class="col-span-1">
+            <label for="id_price" class="block font-medium text-gray-700">Price:</label>
+            {{ form.price }}
+        </div>
+
+        <div class="col-span-3">
+            <label for="id_description" class="block font-medium text-gray-700">Description:</label>
+            {{ form.description }}
+        </div>
+    </div>
+
+    <div>
+        <label for="id_quality" class="block font-medium text-gray-700">Slime Quality:</label>
+        {{ form.slime_quality }}
+    </div>
+
+    <button type="submit" class="bg-[#905cb6] text-white py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300">
+        Submit
+    </button>
 </form>
 
 {% endblock content %}
