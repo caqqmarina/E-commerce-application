@@ -132,3 +132,53 @@ Assignment 4:
 10. Performed migrations using makemigrations and migrate to update the database schema.
 
 11. Created two test user accounts and added three products for each to verify that users only see their own data.
+
+# Assignment 5: Web Design using HTML, CSS, and CSS Framework
+
+# Questions
+
+ A. CSS Selector Priority Order
+The priority of CSS selectors is determined by specificity. The order is:
+1. Inline styles (highest priority)
+2. IDs (`#id`)
+3. Classes, attributes, and pseudo-classes (`.class`, `:hover`)
+4. Element selectors (`div`, `h1`, etc.)
+5. Universal selector (`*`) (lowest priority)
+
+The more specific a selector is, the higher its priority.
+
+ B. Importance of Responsive Design
+Responsive design is crucial because it ensures a seamless user experience across various devices. For example:
+- Applications with responsive design: Twitter, Amazon
+- Applications without responsive design: Older versions of eBay, many static websites
+
+These applications may appear broken or difficult to navigate on different screen sizes.
+
+ C. Differences Between Margin, Border, and Padding
+- Margin: Space outside an element, creating distance from other elements. Implemented using `margin` property.
+- Border: A line surrounding the element. Defined with the `border` property, specifying width, style, and color.
+- Padding: Space inside the element, between the content and the border. Adjusted using the `padding` property.
+
+Example:
+
+```css
+
+.box {
+  margin: 20px; 
+  border: 2px solid black; 
+  padding: 10px;
+}
+```
+
+ D. Concepts of Flexbox and Grid Layout
+- Flexbox: A one-dimensional layout model that arranges items along a single axis (row or column). Ideal for aligning items within a container.
+  - Example: Centering elements within a navbar.
+
+- Grid Layout: A two-dimensional layout system allowing items to be arranged into rows and columns. Useful for creating complex layouts.
+  - Example: Designing a product card layout.
+
+ E. Step-by-Step Implementation of the Checklist
+1. Functions for Product Management: Added additional code in views.py and html formattings for product deletion and editing.
+2. Design Customization: Leveraged Tailwind CSS to enhance the aesthetics of the login, register, and product pages.
+3. Product List: Implemented conditional rendering for empty states and styled product cards for fun look
+4. Navbar: Implemented a Navbar (which isnt being used much right now) for future functionality
