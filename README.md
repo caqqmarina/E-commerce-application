@@ -1,4 +1,4 @@
-Assignment 2:
+# Assignment 2
 
 Explain how you implemented the checklist above step-by-step (not just following the tutorial).
 
@@ -47,7 +47,7 @@ Why is the Django model called an ORM?
 
 Django’s model is called an ORM (Object-Relational Mapping) because it automatically translates Python code into database queries. Instead of writing complex SQL, developers can interact with the database using simple Python objects. This abstraction makes database management easier and more intuitive, allowing developers to focus on the logic rather than the details of database queries.
 
-Assignment 3:
+# Assignment 3
 
 1. Explain why we need data delivery in implementing a platform.
 
@@ -76,7 +76,7 @@ The csrf_token protects your forms from Cross-Site Request Forgery (CSRF) attack
 Access the four URLs in point 2 using Postman, take screenshots of the results in Postman, and add them to README.md.
 https://drive.google.com/drive/folders/1XM6ZVE7FzbINOaqk8aYaWosNkBmm2B6A?usp=sharing
 
-Assignment 4:
+# Assignment 4 
 
  1. What is the difference between HttpResponseRedirect() and redirect()?
 
@@ -133,7 +133,7 @@ Assignment 4:
 
 11. Created two test user accounts and added three products for each to verify that users only see their own data.
 
-# Assignment 5: Web Design using HTML, CSS, and CSS Framework
+# Assignment 5
 
 # Questions
 
