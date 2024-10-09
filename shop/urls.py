@@ -1,6 +1,6 @@
 from django.urls import path
 from shop.views import show_shop
-from shop.views import show_shop, create_product_entry, show_xml, show_json, show_xml_by_id, show_json_by_id
+from shop.views import show_shop, create_product_entry, show_xml, show_json, show_xml_by_id, show_json_by_id, add_product_entry_ajax
 from shop.views import register
 from shop.views import login_user
 from shop.views import logout_user
@@ -20,7 +20,9 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
     path('edit-product-entry/<uuid:id>', edit_product_entry, name='edit_product_entry'),
-    path('delete-product/<uuid:id>/', delete_product_entry, name='delete_product_entry'),
-
+    path('delete/<uuid:id>/', delete_product_entry, name='delete_product_entry'),
+    path('create-product-entry-ajax', add_product_entry_ajax, name='add_product_entry_ajax'),
 ]
+
+
 

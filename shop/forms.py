@@ -6,6 +6,13 @@ class ProductEntryForm(ModelForm):
     class Meta:
         model = Product
         fields = ["name", "price", "description", "slime_quality"]
+        def clean_name(self):
+            name = self.cleaned_data["name"]
+            return strip_tags(name)
+
+        def clean_price(self):
+            price = self.cleaned_data["price"]
+            return strip_tags(price)
 
 # class ProductEntryForm(forms.ModelForm):
 #     class Meta:
