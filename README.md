@@ -182,3 +182,36 @@ Example:
 2. Design Customization: Leveraged Tailwind CSS to enhance the aesthetics of the login, register, and product pages.
 3. Product List: Implemented conditional rendering for empty states and styled product cards for fun look
 4. Navbar: Implemented a Navbar (which isnt being used much right now) for future functionality
+
+# Assignment 6
+
+# Questions
+
+ A. Explain the benefits of using JavaScript in developing web applications!
+
+JavaScript allows us to make web pages dynamic and interactive without needing to reload the entire page. It improves user experience by handling tasks like real-time updates, form validation, or interactive elements directly in the browser. This makes apps faster, reduces server load, and keeps the user engaged with instant feedback.
+
+ B. Explain why we need to use await when we call fetch()! What would happen if we don't use await?
+
+When we use fetch(), it returns a promise that may take some time to resolve. By using await, we pause the code execution until the data is fetched, which ensures that we handle the data correctly before moving on. Without await, the code might try to use the fetched data before it’s ready, which could result in errors or undefined values.
+
+ C. Why do we need to use the csrf_exempt decorator on the view used for AJAX POST?
+
+Django has built-in CSRF protection to prevent malicious form submissions. AJAX requests also need to pass the CSRF token, but it can sometimes complicate things. csrf_exempt allows you to bypass CSRF protection on certain views to simplify AJAX POST requests. 
+
+ D. On this week's tutorial, the user input sanitization is done in the back-end as well. Why can't the sanitization be done just in the front-end?
+
+Front-end sanitization can easily be bypassed because users can manipulate the browser or send requests manually. That’s why back-end sanitization is critical—it ensures that no harmful data makes its way into the server or database, even if the front-end controls are tampered with.
+
+ E. Explain how you implemented the checklist above step-by-step (not just following the tutorial)!
+
+1. AJAX GET: Modified data card to fetch entries belonging to the logged-in user using fetch(). Updated the UI without reloading.
+
+2. AJAX POST: Created a button to trigger a modal for mood entry. Inside the modal, there's a form. After submission, the modal closes and the page refreshes asynchronously if successful, or shows an error message otherwise.
+
+3. New View Function: Created a view function to handle the mood entry submission using AJAX POST, which adds data to the database securely.
+
+4. /create-ajax/ Path: Set up the URL routing to the new view function. Connected the modal form to this route.
+Asynchronous Refresh: Added a function to refresh the mood list dynamically after successful form submission without reloading the main page.
+
+
