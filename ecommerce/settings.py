@@ -24,11 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-cu5qxp8w(_4t4+#n9hapj9&4^jov*$$%r&rj=4orkft6stbje='
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+PRODUCTION = os.getenv("PRODUCTION", False)
+DEBUG = not PRODUCTION
 
-
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "pbp.cs.ui.ac.id", "chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id",
+                 "chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id", "10.0.2.2"]
 
 
 # Application definition
@@ -41,17 +43,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop',
+    'authentication',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Add it directly under SecurityMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
+
+CSRF_TRUSTED_ORIGINS = ["https://*.stndar.dev"] 
 
 ROOT_URLCONF = 'ecommerce.urls'
 
@@ -132,4 +140,11 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id", "https://chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id"]
+# CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id", "https://chiara-aqmarina-ecommerceapp.pbp.cs.ui.ac.id"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
